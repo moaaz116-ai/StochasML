@@ -10,6 +10,8 @@
     "url": "https://github.com/infera-ai/infera.git"
   },
   "scripts": {
+    "init": "pip install -r requirements.txt && pnpm install",
+    "setup:env": "pip install -r requirements.txt && pnpm install",
     "setup": "pip install -r requirements.txt && pnpm install",
     "dev": "turbo dev",
     "build": "turbo build",
