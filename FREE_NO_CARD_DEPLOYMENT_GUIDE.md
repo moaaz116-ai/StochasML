@@ -1,17 +1,17 @@
-# Stochas ML — Zero-Card Cloud Deployment Handbook (No Visa / Credit Card Required)
+# Stochas ML — Zero-Card Cloud Deployment Handbook (No Visa / Credit Card & No Docker Required)
 
-If you do not have a Visa or credit card, or simply do not want to provide payment details to cloud providers, follow this guide. You will deploy **Stochas ML** using **100% Free Tiers that never ask for a credit card**.
+If you do not have a Visa or credit card, or if your Hugging Face account does not have access to free Docker Spaces, follow this guide. You will deploy **Stochas ML** using **100% Free Tiers that never ask for a credit card and run pure Python without Docker**.
 
 ---
 
-## The Best No-Credit-Card Cloud Stack
+## The Best No-Credit-Card & No-Docker Cloud Stack
 
-We will use two generous free platforms that only require an email address or GitHub account:
+We use two generous free platforms that only require an email address or GitHub account:
 
-1. **Backend ML Engine**: Hosted on **Hugging Face Spaces (Docker SDK)**
+1. **Backend ML Engine**: Hosted on **Hugging Face Spaces (Gradio / Python SDK — No Docker Required)**
    - **No Credit Card / Visa Required**.
    - **Free Specs**: 2 vCPUs, **16 GB RAM**, 50 GB Storage ($0/month forever).
-   - *Why it's awesome*: 16 GB RAM runs TensorFlow Lite Micro quantization and C++ code generation incredibly fast!
+   - *How it works*: Hugging Face automatically reads our root `requirements.txt` and launches `app.py`. No Docker container needed!
 2. **Frontend Web Dashboard**: Hosted on **Vercel.com**
    - **No Credit Card / Visa Required**.
    - **Free Specs**: Global Edge Network ($0/month forever).
@@ -28,30 +28,26 @@ We will use two generous free platforms that only require an email address or Gi
 
 ## Phase 2: Click-by-Click Deployment Walkthrough
 
-### Step 1: Deploy the Backend ML Engine on Hugging Face Spaces (~4 Minutes)
+### Step 1: Deploy the Backend ML Engine on Hugging Face Spaces (~3 Minutes)
 
 1. Go to [https://huggingface.co/new-space](https://huggingface.co/new-space) and sign in.
 2. Fill in the **Create a new Space** form exactly:
    - **Space name**: `stochas-ml-backend`
    - **License**: `apache-2.0`
-   - **Select the Space SDK**: Click **Docker**
-   - **Choose a Docker template**: Select **Blank**
+   - **Select the Space SDK**: Click **Gradio** *(Important: Choose Gradio so it runs pure Python without Docker)*
+   - **Choose a template**: Select **Blank**
    - **Space Hardware**: Keep default **FREE CPU Basic · 2 vCPU · 16GB · Free**
 3. Click **Create Space**.
-4. Hugging Face will show you instructions to push your code. Open PowerShell inside your `Infera` project folder (`C:\Users\MF\Desktop\Infera`) and run these commands to push your codebase directly to your new Hugging Face Space:
+4. Open PowerShell inside your `Infera` project folder (`C:\Users\MF\Desktop\Infera`) and push your code directly to your new Hugging Face Space:
    ```powershell
-   # Add your Hugging Face Space as a git remote
    git remote add hf https://huggingface.co/spaces/YOUR_HF_USERNAME/stochas-ml-backend
-
-   # Push your code to Hugging Face
    git push hf main
    ```
    *(Replace `YOUR_HF_USERNAME` with your Hugging Face username).*
-   - **Note on Login**: When Git asks for your Hugging Face password, use a free **Hugging Face Access Token** (generate one in 10 seconds at [https://huggingface.co/settings/tokens](https://huggingface.co/settings/tokens) with `Write` permissions).
-5. Watch your Hugging Face Space page! Within ~3 minutes, it will automatically build our root `Dockerfile` and show **Running** in green at the top right.
-6. Click the **three dots (...)** at the top right of your Space and select **Embed this Space** or look at your Space's direct HTTPS URL:
-   - Your backend API URL will be:
-     `https://YOUR_HF_USERNAME-stochas-ml-backend.hf.space`
+   - **Note on Login**: When Git asks for your Hugging Face password, use a free **Hugging Face Access Token** created at [https://huggingface.co/settings/tokens](https://huggingface.co/settings/tokens).
+5. Within ~2 minutes, Hugging Face will automatically install `requirements.txt`, run `app.py`, and show **Running** in green!
+6. Your backend API URL will be:
+   `https://YOUR_HF_USERNAME-stochas-ml-backend.hf.space`
    - *Copy this URL! You will paste it into Vercel in Step 2.*
 
 ---
@@ -76,21 +72,9 @@ We will use two generous free platforms that only require an email address or Gi
 
 ---
 
-## Comparison: Why Hugging Face Spaces is Better for ML
-
-| Feature | Hugging Face Spaces (Free) | Render.com (Free) |
-| :--- | :--- | :--- |
-| **Credit Card Required?** | **NO ($0 / Zero Card)** | Yes (Visa / Card check) |
-| **RAM Memory** | **16 GB RAM** | 512 MB RAM |
-| **CPU Cores** | **2 vCPUs** | 0.1 vCPU |
-| **Storage** | **50 GB Disk** | Temporary Disk |
-| **Neural Network Training** | **Ultra Fast (16GB)** | May run out of memory on large datasets |
-
----
-
 ## Launch Checklist
 
-- [ ] **1. Hugging Face Space Created**: Space created with SDK `Docker` and `FREE CPU Basic (16GB)` hardware.
+- [ ] **1. Hugging Face Space Created**: Space created with SDK **Gradio** (Python) and `FREE CPU Basic (16GB)` hardware.
 - [ ] **2. Code Pushed to Hugging Face**: Run `git push hf main` and confirm Space status displays **Running** in green.
 - [ ] **3. Vercel Dashboard Live**: Imported `apps/web` with `NEXT_PUBLIC_API_URL` set to `https://<username>-stochas-ml-backend.hf.space/api/v1`.
 - [ ] **4. End-to-End Verification**: Open live Vercel URL → Settings → verify API status reads **"Real TensorFlow"**.
