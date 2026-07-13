@@ -38,17 +38,21 @@ If your repository isn't on GitHub yet:
 
 ---
 
-### Step 3: Start the Application (~10 Seconds)
+### Step 3: Start the Application (~20 Seconds)
 
-1. Once the Codespace opens, look at the terminal at the bottom of the screen. You will see:
-   `=== Stochas ML setup successfully completed! ===`
-2. Type this single command in the terminal and press Enter:
+1. Once the Codespace opens, look at the terminal at the bottom of the screen.
+2. Run this command to install the Python backend packages (`uvicorn`, `fastapi`, and ML Engine):
+   ```bash
+   pip install -r requirements.txt
+   ```
+   *(Or simply run `pnpm setup`)*
+3. Now start both the frontend and backend servers concurrently:
    ```bash
    pnpm dev
    ```
-3. A pop-up notification will appear at the bottom right saying:
+4. A pop-up notification will appear at the bottom right saying:
    **"Your application running on port 3000 is available."**
-4. Click the blue **Open in Browser** button (or check the **Ports** tab next to Terminal and click the globe icon next to Port 3000).
+5. Click the blue **Open in Browser** button (or check the **Ports** tab next to Terminal and click the globe icon next to Port 3000).
 
 ---
 
