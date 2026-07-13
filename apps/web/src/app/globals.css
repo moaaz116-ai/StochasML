@@ -1,0 +1,175 @@
+@import 'tailwindcss';
+
+@theme {
+  --color-surface-0: #070a13;
+  --color-surface-1: #0d1222;
+  --color-surface-2: #141b33;
+  --color-surface-3: #1d2747;
+  --color-accent-start: #3b82f6;
+  --color-accent-end: #06b6d4;
+  --font-sans: var(--font-inter), 'Inter', ui-sans-serif, system-ui, sans-serif;
+  --font-serif: var(--font-eb-garamond), 'EB Garamond', Georgia, Cambria, serif;
+  --font-display: var(--font-eb-garamond), 'EB Garamond', Georgia, Cambria, serif;
+}
+
+@layer base {
+  html {
+    color-scheme: dark;
+  }
+  body {
+    @apply bg-surface-0 text-slate-100 antialiased;
+    font-family: var(--font-sans);
+  }
+  h1, h2, h3 {
+    font-family: var(--font-serif);
+    @apply tracking-tight text-white font-bold;
+  }
+  h4, h5, h6 {
+    font-family: var(--font-sans);
+    @apply tracking-tight text-white font-semibold;
+  }
+  * {
+    @apply border-white/10;
+  }
+}
+
+@layer utilities {
+  .font-serif, .font-garamond {
+    font-family: var(--font-serif);
+  }
+}
+
+/* =========================================================
+   Liquid Glassmorphism Core Design System
+   ========================================================= */
+
+/* Liquid canvas ambient backdrop */
+.liquid-canvas {
+  background-color: #070a13;
+  background-image: 
+    radial-gradient(circle at 15% 15%, rgba(59, 130, 246, 0.14) 0%, transparent 45%),
+    radial-gradient(circle at 85% 85%, rgba(6, 182, 212, 0.12) 0%, transparent 45%),
+    radial-gradient(circle at 50% 50%, rgba(139, 92, 246, 0.08) 0%, transparent 50%);
+}
+
+/* True Liquid Glass Panel - GPU Optimized */
+.liquid-glass {
+  background: rgba(255, 255, 255, 0.055);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  box-shadow: 
+    0 12px 32px -4px rgba(0, 0, 0, 0.45),
+    inset 0 1px 1px 0 rgba(255, 255, 255, 0.18);
+  transform: translateZ(0);
+}
+
+/* Interactive Liquid Glass Card with subtle hover lift */
+.liquid-glass-interactive {
+  background: rgba(255, 255, 255, 0.055);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  box-shadow: 
+    0 12px 32px -4px rgba(0, 0, 0, 0.45),
+    inset 0 1px 1px 0 rgba(255, 255, 255, 0.18);
+  transition: transform 0.2s ease, background-color 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+  transform: translateZ(0);
+}
+.liquid-glass-interactive:hover {
+  background: rgba(255, 255, 255, 0.085);
+  border-color: rgba(255, 255, 255, 0.25);
+  box-shadow: 
+    0 18px 44px -6px rgba(0, 0, 0, 0.6),
+    0 0 24px -4px rgba(59, 130, 246, 0.22),
+    inset 0 1px 1px 0 rgba(255, 255, 255, 0.28);
+  transform: translateY(-2px) translateZ(0);
+}
+
+/* Subtle Inner Liquid Glass Box */
+.liquid-glass-subtle {
+  background: rgba(255, 255, 255, 0.03);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  transform: translateZ(0);
+}
+
+/* Premium Liquid Glow Button */
+.liquid-glow-pill {
+  background: linear-gradient(135deg, rgba(59, 130, 246, 0.9) 0%, rgba(37, 99, 235, 0.95) 50%, rgba(6, 182, 212, 0.85) 100%);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  box-shadow: 
+    0 6px 20px -3px rgba(59, 130, 246, 0.45),
+    inset 0 1px 1px 0 rgba(255, 255, 255, 0.4);
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.liquid-glow-pill:hover {
+  filter: brightness(1.12);
+  box-shadow: 
+    0 10px 28px -2px rgba(59, 130, 246, 0.65),
+    inset 0 1px 2px 0 rgba(255, 255, 255, 0.55);
+  transform: translateY(-1.5px);
+}
+
+/* Custom Sleek Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.15);
+  border-radius: 9999px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.3);
+}
+
+/* Animated gradient text */
+@keyframes gradient-x {
+  0%,
+  100% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+}
+.animate-gradient-x {
+  background-size: 200% 200%;
+  animation: gradient-x 4s ease infinite;
+}
+
+/* Fade in up animation */
+@keyframes fade-in-up {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+.animate-fade-in-up {
+  animation: fade-in-up 0.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+/* Dark-mode native select styling */
+select {
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%2394a3b8' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 0.75rem center;
+  padding-right: 2.5rem;
+  background-color: rgba(255, 255, 255, 0.05);
+  color: #f8fafc;
+}
+select option {
+  background-color: #0d1222;
+  color: #f8fafc;
+  padding: 0.5rem;
+}

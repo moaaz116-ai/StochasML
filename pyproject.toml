@@ -1,0 +1,38 @@
+[project]
+name = "infera"
+version = "0.1.0"
+description = "Open-source TinyML platform"
+requires-python = ">=3.12"
+license = {text = "Apache-2.0"}
+
+[tool.ruff]
+target-version = "py312"
+line-length = 100
+
+[tool.ruff.lint]
+select = [
+    "E", "F", "W", "I", "N", "UP", "ANN", "S", "B", "A",
+    "C4", "DTZ", "T20", "ICN", "PIE", "PT", "RSE", "RET",
+    "SLF", "SIM", "TID", "TCH", "ARG", "ERA", "PLC", "PLE",
+    "PLR", "PLW", "FLY", "RUF",
+]
+ignore = ["ANN101", "ANN102", "ANN401", "UP007"]
+
+[tool.ruff.lint.per-file-ignores]
+"tests/**" = ["S101", "ANN"]
+"**/conftest.py" = ["ANN"]
+
+[tool.ruff.lint.isort]
+known-first-party = ["infera_ml"]
+
+[tool.mypy]
+strict = true
+python_version = "3.12"
+warn_return_any = true
+warn_unused_configs = true
+disallow_untyped_defs = true
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+asyncio_mode = "auto"
+addopts = "-v --tb=short"

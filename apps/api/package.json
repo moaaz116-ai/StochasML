@@ -1,0 +1,9 @@
+{
+  "name": "@infera/api",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "python -m uvicorn src.main:app --host 127.0.0.1 --port 8000 --reload",
+    "test": "python -m pytest tests/"
+  }
+}

@@ -1,0 +1,24 @@
+{
+  "name": "ESP32-S3",
+  "target": "esp32-s3",
+  "mcu": "esp32s3",
+  "flashKb": 8192,
+  "ramKb": 512,
+  "clockMhz": 240,
+  "features": [
+    "wifi",
+    "ble",
+    "vector_instructions"
+  ],
+  "platformio": {
+    "platform": "espressif32",
+    "board": "esp32-s3-devkitc-1",
+    "framework": "arduino",
+    "build_flags": [
+      "-D ESP32S3",
+      "-O3",
+      "-D CORE_DEBUG_LEVEL=0",
+      "-mfix-esp32-psram-cache-issue"
+    ]
+  }
+}

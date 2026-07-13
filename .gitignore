@@ -1,0 +1,69 @@
+# Dependencies
+node_modules/
+.pnpm-store/
+
+# Build outputs
+dist/
+build/
+.next/
+out/
+*.tsbuildinfo
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+*.egg-info/
+*.egg
+.eggs/
+venv/
+.venv/
+*.whl
+
+# Environment
+.env
+.env.local
+.env.*.local
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Testing
+coverage/
+htmlcov/
+.coverage
+.pytest_cache/
+.mypy_cache/
+
+# Docker
+docker/.env
+
+# Turbo
+.turbo/
+
+# Firebase
+firebase-debug.log
+.firebase/
+
+# PlatformIO
+firmware/**/.pio/
+firmware/**/lib/
+firmware/**/include/README
+
+# Misc
+*.log
+*.bak
+*.tmp
+*.db
+data/*
+!data/.gitkeep

@@ -1,0 +1,12 @@
+node_modules
+dist
+.next
+build
+out
+coverage
+.turbo
+pnpm-lock.yaml
+*.tflite
+*.parquet
+*.h5
+firmware/
