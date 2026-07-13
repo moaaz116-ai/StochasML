@@ -9,8 +9,7 @@ pnpm install
 
 # 2. Install Python packages for ML Engine & API
 pip install --upgrade pip hatch
-pip install -e ./packages/ml-engine[tf]
-pip install -e ./apps/api
+pip install -r requirements.txt
 
 # 3. Configure public Codespace URLs if running inside GitHub Codespaces
 if [ -n "$CODESPACE_NAME" ]; then
