@@ -69,9 +69,10 @@ pnpm dev
 
 Stochas ML includes dedicated, step-by-step deployment handbooks for any environment:
 
-1. **[No-Credit-Card Free Cloud Deployment Guide](FREE_NO_CARD_DEPLOYMENT_GUIDE.md)**: Deploy the complete stack for free ($0/month) using **Hugging Face Spaces** (16 GB RAM, no Visa/card required) + **Vercel**.
-2. **[Beginners Cloud Deployment Handbook](BEGINNERS_CLOUD_DEPLOYMENT_GUIDE.md)**: Click-by-click cloud guide for Vercel + Render.
-3. **[Comprehensive Production Guide](DEPLOYMENT_GUIDE.md)**: Docker Compose, GitHub Actions CI/CD, and server administration.
+1. **[One-Click Free Cloud Launch (GitHub Codespaces)](ONE_CLICK_FREE_CODESPACES_GUIDE.md)**: **Recommended for zero-card deployment**. Launch the complete full-stack platform in the cloud in under 2 minutes with **no credit card or Visa required** (4 vCPU, 8 GB RAM free tier).
+2. **[No-Credit-Card Free Cloud Deployment Guide](FREE_NO_CARD_DEPLOYMENT_GUIDE.md)**: Deploy using Hugging Face Spaces Gradio/Python SDK ($0/month) + Vercel.
+3. **[Beginners Cloud Deployment Handbook](BEGINNERS_CLOUD_DEPLOYMENT_GUIDE.md)**: Click-by-click cloud guide for Vercel + Render.
+4. **[Comprehensive Production Guide](DEPLOYMENT_GUIDE.md)**: Docker Compose, GitHub Actions CI/CD, and server administration.
 
 ---
 
